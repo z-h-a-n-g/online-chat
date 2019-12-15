@@ -85,14 +85,19 @@
         </div>
         <div class="bottom-right">
           <el-checkbox v-model="checked">内部消息</el-checkbox>
-          <div class="bot-left-btn-wrap">
+          <div class="bot-left-btn-wrap" @click="more">
             <div class="iconfont icon-left-bot">&#xe70c;</div>
             <div class="word">更多功能</div>
           </div>
         </div>
       </div>
       <div class="area-wrap">
-        <input type="textarea" :placeholder="notice" v-model="textarea" class="area" />
+        <input
+          type="textarea"
+          :placeholder="notice"
+          v-model="textarea"
+          class="area"
+        />
       </div>
       <div class="submit" onclick="sumbit">发送</div>
     </div>
@@ -101,7 +106,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       checked: false,
       notice: "开始对话，输入#可快速使用快捷回复",
@@ -127,16 +132,19 @@ export default {
     };
   },
   methods: {
-    changeCheck () {
+    changeCheck() {
       if (this.checked) {
         this.notice = "内部消息仅同事可见，输入@可提醒同事查看";
       } else {
         this.notice = "开始对话，输入#可快速使用快捷回复";
       }
     },
-    submit () {
+    submit() {
       // eslint-disable-next-line no-console
       console.log("发送信息：", this.textarea);
+    },
+    more() {
+      this.$emit("more");
     }
   }
 };

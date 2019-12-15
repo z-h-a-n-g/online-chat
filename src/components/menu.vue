@@ -26,11 +26,76 @@
           </div>
         </template>
       </div>
-      <div class="btn-2-wrap">
-        <div class="btn"></div>
+    </div>
+    <div class="label-wrap">
+      <div class="label-btn">
+        <el-tooltip class="item" effect="dark" placement="right-start">
+          <div slot="content">
+            网络正常
+            <br />171ms
+          </div>
+          <el-button>
+            <div class="iconfont wifi">&#xe610;</div>
+          </el-button>
+        </el-tooltip>
+      </div>
+      <div class="label-btn">
+        <el-tooltip
+          class="item"
+          effect="dark"
+          content="系统通知"
+          placement="right-start"
+        >
+          <el-button>
+            <div class="iconfont">&#xe600;</div>
+          </el-button>
+        </el-tooltip>
+      </div>
+      <div class="label-btn">
+        <el-tooltip
+          class="item"
+          effect="light"
+          content="小程序"
+          placement="right-start"
+        >
+          <div slot="content">
+            <div class="xcx-wrap">
+              <div class="xcx-img">
+                <img src="../assets/image/menu/xcx.png" width="100%" />
+              </div>
+              <div class="xcx-word">微信扫码 联系我们</div>
+            </div>
+          </div>
+          <el-button>
+            <div class="iconfont">&#xe72c;</div>
+          </el-button>
+        </el-tooltip>
+      </div>
+      <div class="label-btn">
+        <el-tooltip
+          class="item"
+          effect="dark"
+          content="帮助"
+          placement="right-start"
+        >
+          <el-button>
+            <div class="iconfont">&#xe61e;</div>
+          </el-button>
+        </el-tooltip>
+      </div>
+      <div class="label-btn">
+        <el-tooltip
+          class="item"
+          effect="dark"
+          content="帮助"
+          placement="right-start"
+        >
+          <el-button>
+            <div class="iconfont">&#xe618;</div>
+          </el-button>
+        </el-tooltip>
       </div>
     </div>
-    <div class="label-wrap"></div>
   </div>
 </template>
 
@@ -154,5 +219,30 @@ a {
 .router-link-active {
   border-right: 4px solid #009de7;
   background: #212121;
+}
+.el-button {
+  border: none;
+  background: rgb(37, 37, 42);
+  padding: 10px 20px;
+}
+.label-btn .iconfont {
+  background: rgb(37, 37, 42);
+}
+.wifi {
+  color: rgb(41, 121, 45);
+}
+.xcx-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: white;
+}
+.xcx-img {
+  width: 130px;
+}
+.xcx-word {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 </style>

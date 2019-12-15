@@ -4,7 +4,7 @@
       <user-list></user-list>
     </div>
     <div class="mid-cont">
-      <chat-content></chat-content>
+      <chat-content @more="more"></chat-content>
     </div>
     <div class="right-cont" v-show="isShow">
       <information @exit="exit"></information>
@@ -20,7 +20,7 @@ export default {
   name: "chat",
   data() {
     return {
-      isShow: true
+      isShow: false
     };
   },
   components: {
@@ -31,6 +31,9 @@ export default {
   methods: {
     exit() {
       this.isShow = false;
+    },
+    more() {
+      this.isShow = true;
     }
   }
 };
@@ -42,6 +45,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  overflow: hidden;
 }
 .left-cont {
   width: 292px;
