@@ -72,15 +72,14 @@
               </template>
               <div class="wddh-content">
                 <div class="wddh-cz">
-                  <el-select v-model="indexCur" placeholder="请选择" size="mini">
+                  <el-select v-model="indexCur" placeholder="请选择" size="small">
                     <el-option
-                      v-for="item in options"
+                      v-for="item in types"
                       :key="item.label"
                       :label="item.value"
                       :value="item.label"
                     ></el-option>
                   </el-select>
-                  <el-button type="text" @click="open" class="qb-btn">全部</el-button>
                 </div>
                 <template v-if="tsdh_list.length > 0">
                   <div class="user-list-wrap">
@@ -201,6 +200,10 @@ export default {
         { label: 2, value: "只看单聊" },
         { label: 3, value: "只看群聊" },
         { label: 4, value: "超过48小时的接待" }
+      ],
+      types: [
+        { label: 1, value: "按渠道" },
+        { label: 2, value: "按同事" }
       ],
       set: [],
       user_list: [
