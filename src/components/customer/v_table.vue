@@ -30,6 +30,7 @@
         <el-table
           stripe
           border
+          height ="100%"
           ref="multipleTable"
           :data="tableData"
           tooltip-effect="dark"
@@ -416,7 +417,6 @@ export default {
 }
 .el-table {
   height: 100%;
-  overflow-y: scroll;
 }
 .table-table {
   height: 100%;

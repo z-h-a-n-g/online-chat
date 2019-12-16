@@ -34,7 +34,10 @@
                               <img :src="item.imgUrl" width="100%" alt />
                             </el-badge>
                           </div>
-                          <div class="username">{{ item.username }}</div>
+                          <div class="username-wra">
+                            <div class="username">{{ item.username }}</div>
+                            <div class="ltnr">{{ item.ltnr }}</div>
+                          </div>
                         </div>
                         <div class="time">{{ item.time }}</div>
                       </div>
@@ -89,7 +92,10 @@
                               <img :src="item.imgUrl" width="100%" alt />
                             </el-badge>
                           </div>
-                          <div class="username">{{ item.username }}</div>
+                          <div class="username-wra">
+                            <div class="username">{{ item.username }}</div>
+                            <div class="ltnr">{{ item.ltnr }}</div>
+                          </div>
                         </div>
                         <div class="time">{{ item.time }}</div>
                       </div>
@@ -145,7 +151,10 @@
                             <img :src="item.imgUrl" width="100%" alt />
                           </el-badge>
                         </div>
-                        <div class="username">{{ item.username }}</div>
+                        <div class="username-wra">
+                            <div class="username">{{ item.username }}</div>
+                            <div class="ltnr">{{ item.ltnr }}</div>
+                          </div>
                       </div>
                       <div class="time">{{ item.time }}</div>
                     </div>
@@ -200,21 +209,24 @@ export default {
           username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art1.jpg"),
           time: "16:42:53",
-          isRead: false
+          isRead: false,
+          ltnr:'聊天内容'
         },
         {
           id: 2,
           username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art2.jpg"),
           time: "16:42:53",
-          isRead: false
+          isRead: false,
+          ltnr:'聊天内容'
         },
         {
           id: 3,
           username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art1.jpg"),
           time: "16:42:53",
-          isRead: false
+          isRead: false,
+          ltnr:'聊天内容'
         },
         {
           id: 4,
@@ -235,21 +247,24 @@ export default {
           username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art1.jpg"),
           time: "16:42:53",
-          isRead: false
+          isRead: false,
+          ltnr:'聊天内容'
         },
         {
           id: 7,
           username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art2.jpg"),
           time: "16:42:53",
-          isRead: false
+          isRead: false,
+          ltnr:'聊天内容'
         },
         {
           id: 8,
           username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art1.jpg"),
           time: "16:42:53",
-          isRead: false
+          isRead: false,
+          ltnr:'聊天内容'
         },
         {
           id: 9,
@@ -270,21 +285,24 @@ export default {
           username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art1.jpg"),
           time: "16:42:53",
-          isRead: false
+          isRead: false,
+          ltnr:'聊天内容'
         },
         {
           id: 12,
           username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art2.jpg"),
           time: "16:42:53",
-          isRead: false
+          isRead: false,
+          ltnr:'聊天内容'
         },
         {
           id: 13,
           username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art1.jpg"),
           time: "16:42:53",
-          isRead: false
+          isRead: false,
+          ltnr:'聊天内容'
         },
         {
           id: 14,
@@ -305,21 +323,24 @@ export default {
           username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art1.jpg"),
           time: "16:42:53",
-          isRead: false
+          isRead: false,
+          ltnr:'聊天内容'
         },
         {
           id: 17,
           username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art2.jpg"),
           time: "16:42:53",
-          isRead: false
+          isRead: false,
+          ltnr:'聊天内容'
         },
         {
           id: 18,
           username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art1.jpg"),
           time: "16:42:53",
-          isRead: false
+          isRead: false,
+          ltnr:'聊天内容'
         },
         {
           id: 19,
@@ -513,5 +534,9 @@ export default {
 }
 #el-collapse-content-6988 {
   height: 100%;
+}
+.ltnr{font-size: 12px;color:#9a9a9a;}
+.username-wra .username{
+  padding-top:5px;
 }
 </style>

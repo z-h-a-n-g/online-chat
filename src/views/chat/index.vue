@@ -33,7 +33,7 @@ export default {
       this.isShow = false;
     },
     more() {
-      this.isShow = true;
+      this.isShow = !this.isShow;
     }
   }
 };
