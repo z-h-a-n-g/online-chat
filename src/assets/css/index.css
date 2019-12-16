@@ -18,3 +18,7 @@
   height: 100%;
   ;
 }
+
+.el-collapse-item__wrap {
+  height: 100%;
+}

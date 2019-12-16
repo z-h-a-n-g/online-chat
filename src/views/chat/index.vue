@@ -59,4 +59,7 @@ export default {
   width: 238px;
   height: 100%;
 }
+.el-collapse-item__wrap {
+  height: 100%;
+}
 </style>
