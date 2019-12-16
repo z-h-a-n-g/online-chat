@@ -538,7 +538,10 @@ export default {
 #el-collapse-content-6988 {
   height: 100%;
 }
-.ltnr{font-size: 12px;color:#9a9a9a;}
+.ltnr{
+  font-size: 12px;
+  color:#9a9a9a;
+}
 .username-wra .username{
   padding-top:5px;
 }
