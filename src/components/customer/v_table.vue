@@ -35,10 +35,12 @@
           tooltip-effect="dark"
           @selection-change="handleSelectionChange"
         >
-          <el-table-column type="selection" width="55" fixed></el-table-column>
-          <el-table-column prop="cz" label="操作" width="105" fixed>
-            <div class="iconfont"></div>
-            <div class="word-column">发起会话</div>
+          <el-table-column type="selection" width="55"></el-table-column>
+          <el-table-column prop="cz" label="操作" width="105">
+            <div class="cz-wrap">
+              <div class="iconfont">&#xe72c;</div>
+              <div class="word-column">发起会话</div>
+            </div>
           </el-table-column>
           <el-table-column prop="imgUrl" label="头像" width="60">
             <template slot-scope="scope">
@@ -50,7 +52,7 @@
             <template slot-scope="scoped">
               <div class="qd">
                 <div class="word-1">{{ scoped.row.qd }}</div>
-                <div class="word-2">{{scoped.row.qd_info}}</div>
+                <div class="word-2">{{ scoped.row.qd_info }}</div>
               </div>
             </template>
           </el-table-column>
@@ -401,5 +403,13 @@ export default {
   color: white;
   background: rgb(34, 155, 54);
   border-radius: 3px;
+}
+.cz-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: #009de7;
+  cursor: pointer;
 }
 </style>
