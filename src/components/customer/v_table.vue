@@ -57,30 +57,50 @@
             </template>
           </el-table-column>
           <el-table-column prop="wx" label="微信" width="120"></el-table-column>
-          <el-table-column prop="phone" label="电话" width="120"></el-table-column>
+          <el-table-column
+            prop="phone"
+            label="电话"
+            width="120"
+          ></el-table-column>
           <el-table-column prop="bq" label="标签" width="230"></el-table-column>
-          <el-table-column prop="fzr" label="负责人" width="120"></el-table-column>
+          <el-table-column
+            prop="fzr"
+            label="负责人"
+            width="120"
+          ></el-table-column>
           <el-table-column prop="xb" label="性别" width="60"></el-table-column>
           <el-table-column prop="dq" label="地区" width="150"></el-table-column>
           <el-table-column prop="gs" label="公司" width="150"></el-table-column>
-          <el-table-column prop="add_time" label="添加时间" width="100"></el-table-column>
-          <el-table-column prop="zjlx_time" label="最后联系时间" width="130"></el-table-column>
+          <el-table-column
+            prop="add_time"
+            label="添加时间"
+            width="100"
+          ></el-table-column>
+          <el-table-column
+            prop="zjlx_time"
+            label="最后联系时间"
+            width="130"
+          ></el-table-column>
           <el-table-column prop="ms" label="描述" width="165"></el-table-column>
-          <el-table-column prop="jdkf" label="接待客服" width="100"></el-table-column>
+          <el-table-column
+            prop="jdkf"
+            label="接待客服"
+            width="100"
+          ></el-table-column>
         </el-table>
       </div>
-      <div class="block">
-        <span class="block-word">导出客户信息 (416)</span>
-        <el-pagination
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page="currentPage4"
-          :page-sizes="[100, 200, 300, 400]"
-          :page-size="100"
-          layout="total, sizes, prev, pager, next, jumper"
-          :total="400"
-        ></el-pagination>
-      </div>
+    </div>
+    <div class="block">
+      <span class="block-word">导出客户信息 (416)</span>
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage4"
+        :page-sizes="[100, 200, 300, 400]"
+        :page-size="100"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="400"
+      ></el-pagination>
     </div>
   </div>
 </template>
@@ -88,15 +108,15 @@
 <script>
 export default {
   methods: {
-    handleSizeChange (val) {
+    handleSizeChange(val) {
       // eslint-disable-next-line no-console
       console.log(`每页 ${val} 条`);
     },
-    handleCurrentChange (val) {
+    handleCurrentChange(val) {
       // eslint-disable-next-line no-console
       console.log(`当前页: ${val}`);
     },
-    toggleSelection (rows) {
+    toggleSelection(rows) {
       if (rows) {
         rows.forEach(row => {
           this.$refs.multipleTable.toggleRowSelection(row);
@@ -105,11 +125,11 @@ export default {
         this.$refs.multipleTable.clearSelection();
       }
     },
-    handleSelectionChange (val) {
+    handleSelectionChange(val) {
       this.multipleSelection = val;
     }
   },
-  data () {
+  data() {
     return {
       currentPage1: 5,
       currentPage2: 5,
@@ -131,7 +151,7 @@ export default {
           qd: "【在线】远离百度", //渠道
           qd_info: "微信号", //渠道标签
           bzm: "--",
-          nc: "程序员阿森",
+          nc: "MLXGzzz",
           imgUrl: require("../../assets/image/user/art1.jpg")
         },
         {
@@ -149,7 +169,7 @@ export default {
           qd: "【在线】远离百度", //渠道
           qd_info: "微信号", //渠道标签
           bzm: "--",
-          nc: "程序员阿森",
+          nc: "MLXGzzz",
           imgUrl: require("../../assets/image/user/art1.jpg")
         },
         {
@@ -167,7 +187,7 @@ export default {
           qd: "【在线】远离百度", //渠道
           qd_info: "微信号", //渠道标签
           bzm: "--",
-          nc: "程序员阿森",
+          nc: "MLXGzzz",
           imgUrl: require("../../assets/image/user/art1.jpg")
         },
         {
@@ -185,7 +205,7 @@ export default {
           qd: "【在线】远离百度", //渠道
           qd_info: "微信号", //渠道标签
           bzm: "--",
-          nc: "程序员阿森",
+          nc: "MLXGzzz",
           imgUrl: require("../../assets/image/user/art1.jpg")
         },
         {
@@ -203,7 +223,7 @@ export default {
           qd: "【在线】远离百度", //渠道
           qd_info: "微信号", //渠道标签
           bzm: "--",
-          nc: "程序员阿森",
+          nc: "MLXGzzz",
           imgUrl: require("../../assets/image/user/art1.jpg")
         },
         {
@@ -221,7 +241,7 @@ export default {
           qd: "【在线】远离百度", //渠道
           qd_info: "微信号", //渠道标签
           bzm: "--",
-          nc: "程序员阿森",
+          nc: "MLXGzzz",
           imgUrl: require("../../assets/image/user/art1.jpg")
         },
         {
@@ -239,7 +259,7 @@ export default {
           qd: "【在线】远离百度", //渠道
           qd_info: "微信号", //渠道标签
           bzm: "--",
-          nc: "程序员阿森",
+          nc: "MLXGzzz",
           imgUrl: require("../../assets/image/user/art1.jpg")
         },
         {
@@ -257,7 +277,7 @@ export default {
           qd: "【在线】远离百度", //渠道
           qd_info: "微信号", //渠道标签
           bzm: "--",
-          nc: "程序员阿森",
+          nc: "MLXGzzz",
           imgUrl: require("../../assets/image/user/art1.jpg")
         },
         {
@@ -275,7 +295,7 @@ export default {
           qd: "【在线】远离百度", //渠道
           qd_info: "微信号", //渠道标签
           bzm: "--",
-          nc: "程序员阿森",
+          nc: "MLXGzzz",
           imgUrl: require("../../assets/image/user/art1.jpg")
         },
         {
@@ -293,7 +313,7 @@ export default {
           qd: "【在线】远离百度", //渠道
           qd_info: "微信号", //渠道标签
           bzm: "--",
-          nc: "程序员阿森",
+          nc: "MLXGzzz",
           imgUrl: require("../../assets/image/user/art1.jpg")
         },
         {
@@ -311,7 +331,61 @@ export default {
           qd: "【在线】远离百度", //渠道
           qd_info: "微信号", //渠道标签
           bzm: "--",
-          nc: "程序员阿森",
+          nc: "MLXGzzz",
+          imgUrl: require("../../assets/image/user/art1.jpg")
+        },
+        {
+          ms: "--", //描述
+          jdkf: "--", //接待客服
+          zjlx_time: "--", //最近联系时间
+          gs: "--", //公司
+          add_time: "--", //添加时间
+          xb: "男", //性别
+          fzr: "--", //负责人
+          dq: "中国", //地区
+          bq: "--", //标签
+          phone: "--", //电话
+          wx: "zyb17595", //微信
+          qd: "【在线】远离百度", //渠道
+          qd_info: "微信号", //渠道标签
+          bzm: "--",
+          nc: "MLXGzzz",
+          imgUrl: require("../../assets/image/user/art1.jpg")
+        },
+        {
+          ms: "--", //描述
+          jdkf: "--", //接待客服
+          zjlx_time: "--", //最近联系时间
+          gs: "--", //公司
+          add_time: "--", //添加时间
+          xb: "男", //性别
+          fzr: "--", //负责人
+          dq: "中国", //地区
+          bq: "--", //标签
+          phone: "--", //电话
+          wx: "zyb17595", //微信
+          qd: "【在线】远离百度", //渠道
+          qd_info: "微信号", //渠道标签
+          bzm: "--",
+          nc: "MLXGzzz",
+          imgUrl: require("../../assets/image/user/art1.jpg")
+        },
+        {
+          ms: "--", //描述
+          jdkf: "--", //接待客服
+          zjlx_time: "--", //最近联系时间
+          gs: "--", //公司
+          add_time: "--", //添加时间
+          xb: "男", //性别
+          fzr: "--", //负责人
+          dq: "中国", //地区
+          bq: "--", //标签
+          phone: "--", //电话
+          wx: "zyb17595", //微信
+          qd: "【在线】远离百度", //渠道
+          qd_info: "微信号", //渠道标签
+          bzm: "--",
+          nc: "MLXGzzz",
           imgUrl: require("../../assets/image/user/art1.jpg")
         }
       ],
@@ -341,7 +415,13 @@ export default {
   font-size: 14px;
 }
 .el-table {
-  padding-bottom: 50px;
+  height: 100%;
+  overflow-y: scroll;
+}
+.table-table {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
 }
 .table-btn-wrap {
   display: flex;
@@ -372,15 +452,13 @@ export default {
   text-align: center;
 }
 .block {
-  position: absolute;
   width: 100%;
-  bottom: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
-  z-index: 99;
+
   border-top: 1px solid #ccc;
 }
 .el-table td {

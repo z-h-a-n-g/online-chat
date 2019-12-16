@@ -4,18 +4,27 @@
     <el-collapse v-model="activeNames" @change="handleChange">
       <div class="wrap-inde">
         <div class="wrap-1">
-          <div class="wrap-1-1" :class="{'wrap-active':set==1 ? true :false}">
+          <div
+            class="wrap-1-1"
+            :class="{ 'wrap-active': set == 1 ? true : false }"
+          >
             <!-- 我的对话 -->
             <el-collapse-item name="1">
               <template slot="title">
                 <div class="wddh">
-                  <div class="wddh-word">我的对话（{{ hh_numbers }}/{{ specifications }}）</div>
+                  <div class="wddh-word">
+                    我的对话（{{ hh_numbers }}/{{ specifications }}）
+                  </div>
                 </div>
               </template>
               <div class="wddh-content">
                 <template v-if="user_list.length > 0">
                   <div class="wddh-cz">
-                    <el-select v-model="indexCur" placeholder="请选择" size="mini">
+                    <el-select
+                      v-model="indexCur"
+                      placeholder="请选择"
+                      size="mini"
+                    >
                       <el-option
                         v-for="item in options"
                         :key="item.label"
@@ -23,7 +32,9 @@
                         :value="item.label"
                       ></el-option>
                     </el-select>
-                    <el-button type="text" @click="open" class="qb-btn">全部</el-button>
+                    <el-button type="text" @click="open" class="qb-btn"
+                      >全部</el-button
+                    >
                   </div>
                   <div class="user-list-wrap">
                     <template v-for="(item, index) of user_list">
@@ -59,7 +70,10 @@
               </div>
             </el-collapse-item>
           </div>
-          <div class="wrap-1-2" :class="{'wrap-active':set==2 ? true :false}">
+          <div
+            class="wrap-1-2"
+            :class="{ 'wrap-active': set == 2 ? true : false }"
+          >
             <!-- 同事对话 -->
             <el-collapse-item name="2">
               <template slot="title">
@@ -70,7 +84,11 @@
               <div class="wddh-content">
                 <template v-if="tsdh_list.length < 10">
                   <div class="wddh-cz">
-                    <el-select v-model="indexCur" placeholder="请选择" size="mini">
+                    <el-select
+                      v-model="indexCur"
+                      placeholder="请选择"
+                      size="mini"
+                    >
                       <el-option
                         v-for="item in options"
                         :key="item.label"
@@ -78,10 +96,15 @@
                         :value="item.label"
                       ></el-option>
                     </el-select>
-                    <el-button type="text" @click="open" class="qb-btn">全部</el-button>
+                    <el-button type="text" @click="open" class="qb-btn"
+                      >全部</el-button
+                    >
                   </div>
                   <div class="user-list-wrap">
-                    <template v-for="(item, index) of user_list" class="table-wrap">
+                    <template
+                      v-for="(item, index) of user_list"
+                      class="table-wrap"
+                    >
                       <div v-show="!item.isRead" :key="index" class="user">
                         <div class="user-info">
                           <div class="img">
@@ -126,7 +149,11 @@
             <div class="wddh-content-pdz">
               <template v-if="pdz_list.length > 0">
                 <div class="wddh-cz">
-                  <el-select v-model="indexCur" placeholder="请选择" size="mini">
+                  <el-select
+                    v-model="indexCur"
+                    placeholder="请选择"
+                    size="mini"
+                  >
                     <el-option
                       v-for="item in options"
                       :key="item.label"
@@ -134,7 +161,9 @@
                       :value="item.label"
                     ></el-option>
                   </el-select>
-                  <el-button type="text" @click="open" class="qb-btn">全部</el-button>
+                  <el-button type="text" @click="open" class="qb-btn"
+                    >全部</el-button
+                  >
                 </div>
                 <div class="user-list-wrap">
                   <template v-for="(item, index) of user_list">
@@ -177,7 +206,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       activeNames: ["1"], //当前打开的第几个选项卡 1、我的对话 2、同事的对话 3、排队中
       specifications: 20, //当前能显示的会话总数
@@ -196,121 +225,121 @@ export default {
       set: 1,
       user_list: [
         {
-          username: "程序员阿森",
+          username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art1.jpg"),
           time: "16:42:53",
           isRead: false
         },
         {
-          username: "程序员阿森",
+          username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art2.jpg"),
           time: "16:42:53",
           isRead: false
         },
         {
-          username: "程序员阿森",
+          username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art1.jpg"),
           time: "16:42:53",
           isRead: false
         },
         {
-          username: "程序员阿森",
-          imgUrl: require("../..//assets/image/user/art2.jpg"),
-          time: "16:42:53",
-          isRead: true
-        },
-        {
-          username: "程序员阿森",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: true
-        },
-        {
-          username: "程序员阿森",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: false
-        },
-        {
-          username: "程序员阿森",
-          imgUrl: require("../..//assets/image/user/art2.jpg"),
-          time: "16:42:53",
-          isRead: false
-        },
-        {
-          username: "程序员阿森",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: false
-        },
-        {
-          username: "程序员阿森",
+          username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art2.jpg"),
           time: "16:42:53",
           isRead: true
         },
         {
-          username: "程序员阿森",
+          username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art1.jpg"),
           time: "16:42:53",
           isRead: true
         },
         {
-          username: "程序员阿森",
+          username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art1.jpg"),
           time: "16:42:53",
           isRead: false
         },
         {
-          username: "程序员阿森",
+          username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art2.jpg"),
           time: "16:42:53",
           isRead: false
         },
         {
-          username: "程序员阿森",
+          username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art1.jpg"),
           time: "16:42:53",
           isRead: false
         },
         {
-          username: "程序员阿森",
-          imgUrl: require("../..//assets/image/user/art2.jpg"),
-          time: "16:42:53",
-          isRead: true
-        },
-        {
-          username: "程序员阿森",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: true
-        },
-        {
-          username: "程序员阿森",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: false
-        },
-        {
-          username: "程序员阿森",
-          imgUrl: require("../..//assets/image/user/art2.jpg"),
-          time: "16:42:53",
-          isRead: false
-        },
-        {
-          username: "程序员阿森",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: false
-        },
-        {
-          username: "程序员阿森",
+          username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art2.jpg"),
           time: "16:42:53",
           isRead: true
         },
         {
-          username: "程序员阿森",
+          username: "MLXGzzz",
+          imgUrl: require("../..//assets/image/user/art1.jpg"),
+          time: "16:42:53",
+          isRead: true
+        },
+        {
+          username: "MLXGzzz",
+          imgUrl: require("../..//assets/image/user/art1.jpg"),
+          time: "16:42:53",
+          isRead: false
+        },
+        {
+          username: "MLXGzzz",
+          imgUrl: require("../..//assets/image/user/art2.jpg"),
+          time: "16:42:53",
+          isRead: false
+        },
+        {
+          username: "MLXGzzz",
+          imgUrl: require("../..//assets/image/user/art1.jpg"),
+          time: "16:42:53",
+          isRead: false
+        },
+        {
+          username: "MLXGzzz",
+          imgUrl: require("../..//assets/image/user/art2.jpg"),
+          time: "16:42:53",
+          isRead: true
+        },
+        {
+          username: "MLXGzzz",
+          imgUrl: require("../..//assets/image/user/art1.jpg"),
+          time: "16:42:53",
+          isRead: true
+        },
+        {
+          username: "MLXGzzz",
+          imgUrl: require("../..//assets/image/user/art1.jpg"),
+          time: "16:42:53",
+          isRead: false
+        },
+        {
+          username: "MLXGzzz",
+          imgUrl: require("../..//assets/image/user/art2.jpg"),
+          time: "16:42:53",
+          isRead: false
+        },
+        {
+          username: "MLXGzzz",
+          imgUrl: require("../..//assets/image/user/art1.jpg"),
+          time: "16:42:53",
+          isRead: false
+        },
+        {
+          username: "MLXGzzz",
+          imgUrl: require("../..//assets/image/user/art2.jpg"),
+          time: "16:42:53",
+          isRead: true
+        },
+        {
+          username: "MLXGzzz",
           imgUrl: require("../..//assets/image/user/art1.jpg"),
           time: "16:42:53",
           isRead: true
@@ -319,11 +348,11 @@ export default {
     };
   },
   methods: {
-    handleChange (val) {
+    handleChange(val) {
       // eslint-disable-next-line no-console
       console.log(val);
     },
-    open () {
+    open() {
       this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",

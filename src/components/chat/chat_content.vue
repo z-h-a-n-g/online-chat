@@ -115,7 +115,7 @@ export default {
         {
           id: 1,
           info: 1,
-          username: "程序员阿森1号",
+          username: "MLXGzzz1号",
           desc: "晚上开发灵感无限啊",
           headImgUrl: require("../../assets/image/user/art1.jpg"),
           time: "2019-12-15"
@@ -123,7 +123,7 @@ export default {
         {
           id: 2,
           info: 2,
-          username: "程序员阿森2号",
+          username: "MLXGzzz2号",
           desc: "是啊",
           headImgUrl: require("../../assets/image/user/art2.jpg"),
           time: "2019-12-15"
