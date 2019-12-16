@@ -1,7 +1,7 @@
 <!--用户列表-->
 <template>
   <div class="user-list-wrap-index">
-    <el-collapse v-model="activeNames" @change="handleChange">
+    <el-collapse v-model="activeNames" @change="handleChange" accordion>
       <div class="wrap-inde">
         <div class="wrap-1">
           <div
@@ -351,6 +351,14 @@ export default {
     handleChange(val) {
       // eslint-disable-next-line no-console
       console.log(val);
+      if (val == this.set) {
+        if (this.set == 2) {
+          this.set = 1;
+        } else {
+          this.set = 2;
+        }
+      }
+      this.set = val != 3 ? val : this.set;
     },
     open() {
       this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
@@ -455,7 +463,6 @@ export default {
   font-size: 20px;
 }
 .user-list-wrap {
-  height: calc(100% - 140px);
   margin-top: 10px;
   overflow: auto;
 }
@@ -474,24 +481,37 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 }
-.wrap-active {
-  flex: 1;
+.wrap-active .el-collapse-item__content {
+  height: 100%;
 }
 .wddh-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  overflow: auto;
-  height: calc(100% - 100px);
+  height: 100%;
+  overflow-y: none;
 }
 .wrap-active .el-collapse-item__content {
+  border: 1px solid red;
   height: 100%;
-  overflow: auto;
 }
-.wrap-1-1 {
+.wrap-active {
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
+}
+.wrap-1-1,
+.wrap-1-2 {
+  min-height: 40px;
+}
+.is-active {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#el-collapse-content-6988 {
+  height: 100%;
 }
 </style>

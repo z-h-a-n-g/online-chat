@@ -13,3 +13,8 @@
   font-family: 'iconfont';
   font-size: 20px;
 }
+
+.el-collapse-item__content {
+  height: 100%;
+  ;
+}
