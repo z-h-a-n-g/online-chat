@@ -241,7 +241,9 @@ export default {
       indexCur: 1,
       pdz: 23, //排队中的会话总数
       tsdh: 2, //同事对话
+      //同事对话数据
       tsdh_list: { active: 1, list: [] },
+      //排队中对话数据
       pdz_list: { active: 1, list: [] },
       options: [
         { label: 1, value: "全部" },
@@ -254,6 +256,7 @@ export default {
         { label: 2, value: "按同事" }
       ],
       set: [],
+      //我的对话
       user_list: {
         active: 1,
         list: [
