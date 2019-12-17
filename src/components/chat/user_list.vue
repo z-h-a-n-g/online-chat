@@ -13,7 +13,7 @@
                 </div>
               </template>
               <div class="wddh-content">
-                <template v-if="user_list.length > 0">
+                <template v-if="user_list.list.length > 0">
                   <div class="wddh-cz">
                     <el-select v-model="indexCur" placeholder="请选择" size="mini">
                       <el-option
@@ -26,8 +26,16 @@
                     <el-button type="text" @click="open" class="qb-btn">全部</el-button>
                   </div>
                   <div class="user-list-wrap">
-                    <template v-for="item of user_list">
-                      <div v-show="!item.isRead" class="user" :key="item.id">
+                    <template v-for="item of user_list.list">
+                      <div
+                        v-show="!item.isRead"
+                        class="user"
+                        :key="item.id"
+                        :class="{
+                          'user-wrap-active':
+                            user_list.active == item.id ? true : false
+                        }"
+                      >
                         <div class="user-info" :key="item.id">
                           <div class="img">
                             <el-badge is-dot class="item">
@@ -41,7 +49,15 @@
                         </div>
                         <div class="time">{{ item.time }}</div>
                       </div>
-                      <div class="user" v-show="item.isRead" :key="item.id">
+                      <div
+                        class="user"
+                        v-show="item.isRead"
+                        :key="item.id"
+                        :class="{
+                          'user-wrap-active':
+                            user_list.active == item.id ? true : false
+                        }"
+                      >
                         <div class="user-info user-info-read" :key="item.id">
                           <div class="img">
                             <img :src="item.imgUrl" width="100%" alt />
@@ -81,10 +97,18 @@
                     ></el-option>
                   </el-select>
                 </div>
-                <template v-if="tsdh_list.length > 0">
+                <template v-if="tsdh_list.list.length > 0">
                   <div class="user-list-wrap">
-                    <template v-for="item of user_list" class="table-wrap">
-                      <div v-show="!item.isRead" :key="item.id" class="user">
+                    <template v-for="item of user_list.list">
+                      <div
+                        v-show="!item.isRead"
+                        :key="item.id"
+                        class="user"
+                        :class="{
+                          'user-wrap-active':
+                            tsdh_list.active == item.id ? true : false
+                        }"
+                      >
                         <div class="user-info">
                           <div class="img">
                             <el-badge is-dot class="item">
@@ -98,7 +122,15 @@
                         </div>
                         <div class="time">{{ item.time }}</div>
                       </div>
-                      <div class="user" v-show="item.isRead" :key="item.id">
+                      <div
+                        class="user"
+                        v-show="item.isRead"
+                        :key="item.id"
+                        :class="{
+                          'user-wrap-active':
+                            tsdh_list.active == item.id ? true : false
+                        }"
+                      >
                         <div class="user-info">
                           <div class="img">
                             <img :src="item.imgUrl" width="100%" alt />
@@ -140,10 +172,18 @@
                 </el-select>
                 <el-button type="text" @click="open" class="qb-btn">全部</el-button>
               </div>
-              <template v-if="pdz_list.length > 0">
+              <template v-if="pdz_list.list.length > 0">
                 <div class="user-list-wrap">
-                  <template v-for="item of user_list">
-                    <div v-show="!item.isRead" :key="item.id" class="user">
+                  <template v-for="item of user_list.list">
+                    <div
+                      v-show="!item.isRead"
+                      :key="item.id"
+                      class="user"
+                      :class="{
+                          'user-wrap-active':
+                            pdz_list.active == item.id ? true : false
+                        }"
+                    >
                       <div class="user-info">
                         <div class="img">
                           <el-badge is-dot class="item">
@@ -151,13 +191,21 @@
                           </el-badge>
                         </div>
                         <div class="username-wra">
-                            <div class="username">{{ item.username }}</div>
-                            <div class="ltnr">{{ item.ltnr }}</div>
-                          </div>
+                          <div class="username">{{ item.username }}</div>
+                          <div class="ltnr">{{ item.ltnr }}</div>
+                        </div>
                       </div>
                       <div class="time">{{ item.time }}</div>
                     </div>
-                    <div class="user" v-show="item.isRead" :key="item.id">
+                    <div
+                      class="user"
+                      v-show="item.isRead"
+                      :key="item.id"
+                      :class="{
+                          'user-wrap-active':
+                            pdz_list.active == item.id ? true : false
+                        }"
+                    >
                       <div class="user-info">
                         <div class="img">
                           <img :src="item.imgUrl" width="100%" alt />
@@ -193,8 +241,8 @@ export default {
       indexCur: 1,
       pdz: 23, //排队中的会话总数
       tsdh: 2, //同事对话
-      tsdh_list: [],
-      pdz_list: [],
+      tsdh_list: { active: 1, list: [] },
+      pdz_list: { active: 1, list: [] },
       options: [
         { label: 1, value: "全部" },
         { label: 2, value: "只看单聊" },
@@ -206,160 +254,163 @@ export default {
         { label: 2, value: "按同事" }
       ],
       set: [],
-      user_list: [
-        {
-          id: 1,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: false,
-          ltnr:'聊天内容'
-        },
-        {
-          id: 2,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art2.jpg"),
-          time: "16:42:53",
-          isRead: false,
-          ltnr:'聊天内容'
-        },
-        {
-          id: 3,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: false,
-          ltnr:'聊天内容'
-        },
-        {
-          id: 4,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art2.jpg"),
-          time: "16:42:53",
-          isRead: true
-        },
-        {
-          id: 5,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: true
-        },
-        {
-          id: 6,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: false,
-          ltnr:'聊天内容'
-        },
-        {
-          id: 7,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art2.jpg"),
-          time: "16:42:53",
-          isRead: false,
-          ltnr:'聊天内容'
-        },
-        {
-          id: 8,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: false,
-          ltnr:'聊天内容'
-        },
-        {
-          id: 9,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art2.jpg"),
-          time: "16:42:53",
-          isRead: true
-        },
-        {
-          id: 10,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: true
-        },
-        {
-          id: 11,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: false,
-          ltnr:'聊天内容'
-        },
-        {
-          id: 12,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art2.jpg"),
-          time: "16:42:53",
-          isRead: false,
-          ltnr:'聊天内容'
-        },
-        {
-          id: 13,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: false,
-          ltnr:'聊天内容'
-        },
-        {
-          id: 14,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art2.jpg"),
-          time: "16:42:53",
-          isRead: true
-        },
-        {
-          id: 15,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: true
-        },
-        {
-          id: 16,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: false,
-          ltnr:'聊天内容'
-        },
-        {
-          id: 17,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art2.jpg"),
-          time: "16:42:53",
-          isRead: false,
-          ltnr:'聊天内容'
-        },
-        {
-          id: 18,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: false,
-          ltnr:'聊天内容'
-        },
-        {
-          id: 19,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art2.jpg"),
-          time: "16:42:53",
-          isRead: true
-        },
-        {
-          id: 20,
-          username: "MLXGzzz",
-          imgUrl: require("../..//assets/image/user/art1.jpg"),
-          time: "16:42:53",
-          isRead: true
-        }
-      ]
+      user_list: {
+        active: 1,
+        list: [
+          {
+            id: 1,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art1.jpg"),
+            time: "16:42:53",
+            isRead: false,
+            ltnr: "聊天内容"
+          },
+          {
+            id: 2,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art2.jpg"),
+            time: "16:42:53",
+            isRead: false,
+            ltnr: "聊天内容"
+          },
+          {
+            id: 3,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art1.jpg"),
+            time: "16:42:53",
+            isRead: false,
+            ltnr: "聊天内容"
+          },
+          {
+            id: 4,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art2.jpg"),
+            time: "16:42:53",
+            isRead: true
+          },
+          {
+            id: 5,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art1.jpg"),
+            time: "16:42:53",
+            isRead: true
+          },
+          {
+            id: 6,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art1.jpg"),
+            time: "16:42:53",
+            isRead: false,
+            ltnr: "聊天内容"
+          },
+          {
+            id: 7,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art2.jpg"),
+            time: "16:42:53",
+            isRead: false,
+            ltnr: "聊天内容"
+          },
+          {
+            id: 8,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art1.jpg"),
+            time: "16:42:53",
+            isRead: false,
+            ltnr: "聊天内容"
+          },
+          {
+            id: 9,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art2.jpg"),
+            time: "16:42:53",
+            isRead: true
+          },
+          {
+            id: 10,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art1.jpg"),
+            time: "16:42:53",
+            isRead: true
+          },
+          {
+            id: 11,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art1.jpg"),
+            time: "16:42:53",
+            isRead: false,
+            ltnr: "聊天内容"
+          },
+          {
+            id: 12,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art2.jpg"),
+            time: "16:42:53",
+            isRead: false,
+            ltnr: "聊天内容"
+          },
+          {
+            id: 13,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art1.jpg"),
+            time: "16:42:53",
+            isRead: false,
+            ltnr: "聊天内容"
+          },
+          {
+            id: 14,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art2.jpg"),
+            time: "16:42:53",
+            isRead: true
+          },
+          {
+            id: 15,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art1.jpg"),
+            time: "16:42:53",
+            isRead: true
+          },
+          {
+            id: 16,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art1.jpg"),
+            time: "16:42:53",
+            isRead: false,
+            ltnr: "聊天内容"
+          },
+          {
+            id: 17,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art2.jpg"),
+            time: "16:42:53",
+            isRead: false,
+            ltnr: "聊天内容"
+          },
+          {
+            id: 18,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art1.jpg"),
+            time: "16:42:53",
+            isRead: false,
+            ltnr: "聊天内容"
+          },
+          {
+            id: 19,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art2.jpg"),
+            time: "16:42:53",
+            isRead: true
+          },
+          {
+            id: 20,
+            username: "MLXGzzz",
+            imgUrl: require("../..//assets/image/user/art1.jpg"),
+            time: "16:42:53",
+            isRead: true
+          }
+        ]
+      }
     };
   },
   methods: {
@@ -459,6 +510,9 @@ export default {
   background: rgb(204, 235, 250);
   cursor: pointer;
 }
+.user-wrap-active {
+  background: rgb(204, 235, 250);
+}
 .user-info {
   display: flex;
   flex-direction: row;
@@ -538,11 +592,11 @@ export default {
 #el-collapse-content-6988 {
   height: 100%;
 }
-.ltnr{
+.ltnr {
   font-size: 12px;
-  color:#9a9a9a;
+  color: #9a9a9a;
 }
-.username-wra .username{
-  padding-top:5px;
+.username-wra .username {
+  padding-top: 5px;
 }
 </style>
